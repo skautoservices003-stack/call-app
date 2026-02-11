@@ -1,10 +1,18 @@
-const firebaseConfig = {
-  apiKey: "AIzaSyDN2JwRyqktU_jvqtee-nHA7b3l2vxmYrk",
-  authDomain: "call-7fde4.firebaseapp.com",
-  databaseURL: "https://call-7fde4-default-rtdb.firebaseio.com",  // https://call-7fde4-default-rtdb.firebaseio.com/
+'use strict';
 
-  projectId: "call-7fde4",
+import { initializeApp } from 'firebase/app';
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+    apiKey: 'YOUR_API_KEY',
+    authDomain: 'YOUR_AUTH_DOMAIN',
+    projectId: 'YOUR_PROJECT_ID',
+    storageBucket: 'YOUR_STORAGE_BUCKET',
+    messagingSenderId: 'YOUR_MESSAGING_SENDER_ID',
+    appId: 'YOUR_APP_ID'
 };
 
-firebase.initializeApp(firebaseConfig);
-const db = firebase.database();
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+export default app;
