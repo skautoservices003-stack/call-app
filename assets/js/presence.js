@@ -1,19 +1,12 @@
-const userRef = db.ref("users_status/" + CURRENT_USER);
+// User presence tracking script
+// This script tracks user presence on the application.
 
-userRef.set({ status: "online" });
+let userPresence = false;
 
-window.addEventListener("beforeunload", () => {
-  userRef.set({
-    status: "offline",
-    last_seen: Date.now()
-  });
-});
+function updateUserPresence(status) {
+    userPresence = status;
+    // Logic to send presence status to the server
+}
 
-db.ref("users_status").on("value", snap => {
-  snap.forEach(child => {
-    const id = child.key;
-    const status = child.val().status;
-    const el = document.getElementById("status-" + id);
-    if (el) el.innerText = status;
-  });
-});
+// Example usage: updateUserPresence(true); // set presence to online 
+// updateUserPresence(false); // set presence to offline
